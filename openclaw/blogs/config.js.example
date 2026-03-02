@@ -1,0 +1,8 @@
+// OpenClaw AI 助手配置文件
+// 重要：此文件包含敏感信息，不要提交到 Git！
+
+// 设置访问密码
+ACCESS_PASSWORD = 'your_secure_password_here';
+
+// 可选：设置允许的 IP 列表
+// ALLOWED_IPS = ['123.45.67.89', '98.76.54.32'];

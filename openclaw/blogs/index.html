@@ -302,11 +302,30 @@
     </div>
 
     <script>
-        // 安全配置
-        const ACCESS_PASSWORD = 'openclaw2026';
-        const MAX_ATTEMPTS = 5;           // 最大尝试次数
-        const LOCKOUT_DURATION = 3600000; // 锁定时间：1小时（毫秒）
-        const ALLOWED_IPS = [];           // 允许的IP列表（空表示不限制特定IP）
+        // 安全配置 - 密码通过外部配置文件加载，不硬编码在代码中
+        let ACCESS_PASSWORD = '';
+        const MAX_ATTEMPTS = 5;
+        const LOCKOUT_DURATION = 3600000;
+        const ALLOWED_IPS = [];
+        
+        // 从外部配置文件加载密码（配置文件不提交到Git）
+        async function loadConfig() {
+            try {
+                const response = await fetch('./config.js');
+                if (response.ok) {
+                    const script = await response.text();
+                    // 执行配置文件中的变量赋值
+                    eval(script);
+                }
+            } catch (e) {
+                console.log('Config file not found, using default behavior');
+            }
+            
+            // 如果没有外部配置，提示用户联系管理员
+            if (!ACCESS_PASSWORD) {
+                ACCESS_PASSWORD = 'CONTACT_ADMIN'; // 占位符，实际无法使用
+            }
+        }
         
         let isAuthenticated = false;
         let userIP = '';
@@ -429,7 +448,7 @@
             const input = document.getElementById('auth-password');
             const error = document.getElementById('auth-error');
             
-            if (input.value === ACCESS_PASSWORD) {
+            if (input.value === ACCESS_PASSWORD && ACCESS_PASSWORD !== 'CONTACT_ADMIN') {
                 isAuthenticated = true;
                 input.value = '';
                 error.classList.add('hidden');
@@ -493,7 +512,9 @@
         }
         
         // 启动初始化
-        init();
+        loadConfig().then(() => {
+            init();
+        });
     </script>
 
     <style>
