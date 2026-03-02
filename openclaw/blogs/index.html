@@ -302,13 +302,105 @@
     </div>
 
     <script>
-        // 设置密码（你可以修改这个密码）
+        // 安全配置
         const ACCESS_PASSWORD = 'openclaw2026';
-        let isAuthenticated = false;
+        const MAX_ATTEMPTS = 5;           // 最大尝试次数
+        const LOCKOUT_DURATION = 3600000; // 锁定时间：1小时（毫秒）
+        const ALLOWED_IPS = [];           // 允许的IP列表（空表示不限制特定IP）
         
-        document.getElementById('current-page').textContent = document.title;
+        let isAuthenticated = false;
+        let userIP = '';
+        
+        // 获取用户IP
+        async function getUserIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (e) {
+                return 'unknown';
+            }
+        }
+        
+        // 检查IP是否在允许列表中
+        function isIPAllowed(ip) {
+            if (ALLOWED_IPS.length === 0) return true;
+            return ALLOWED_IPS.includes(ip);
+        }
+        
+        // 获取存储的尝试记录
+        function getAttemptRecord() {
+            const record = localStorage.getItem('ai_assistant_attempts');
+            if (record) {
+                return JSON.parse(record);
+            }
+            return { count: 0, lockoutUntil: 0, lastAttempt: 0 };
+        }
+        
+        // 保存尝试记录
+        function saveAttemptRecord(record) {
+            localStorage.setItem('ai_assistant_attempts', JSON.stringify(record));
+        }
+        
+        // 检查是否被锁定
+        function isLockedOut() {
+            const record = getAttemptRecord();
+            const now = Date.now();
+            
+            // 检查是否在锁定时间内
+            if (record.lockoutUntil && now < record.lockoutUntil) {
+                const remaining = Math.ceil((record.lockoutUntil - now) / 60000);
+                return { locked: true, remainingMinutes: remaining };
+            }
+            
+            // 锁定时间已过，重置
+            if (record.lockoutUntil && now >= record.lockoutUntil) {
+                saveAttemptRecord({ count: 0, lockoutUntil: 0, lastAttempt: 0 });
+            }
+            
+            return { locked: false };
+        }
+        
+        // 记录失败尝试
+        function recordFailedAttempt() {
+            const record = getAttemptRecord();
+            record.count++;
+            record.lastAttempt = Date.now();
+            
+            // 超过最大尝试次数，锁定
+            if (record.count >= MAX_ATTEMPTS) {
+                record.lockoutUntil = Date.now() + LOCKOUT_DURATION;
+            }
+            
+            saveAttemptRecord(record);
+            return record.count;
+        }
+        
+        // 重置尝试记录（成功登录后）
+        function resetAttempts() {
+            saveAttemptRecord({ count: 0, lockoutUntil: 0, lastAttempt: 0 });
+        }
+        
+        // 初始化
+        async function init() {
+            userIP = await getUserIP();
+            document.getElementById('current-page').textContent = document.title;
+        }
         
         function showAuth() {
+            // 检查是否被锁定
+            const lockStatus = isLockedOut();
+            if (lockStatus.locked) {
+                alert(`访问已被锁定，请 ${lockStatus.remainingMinutes} 分钟后重试`);
+                return;
+            }
+            
+            // 检查IP
+            if (!isIPAllowed(userIP)) {
+                alert('您的IP地址不在允许列表中');
+                return;
+            }
+            
             if (isAuthenticated) {
                 toggleChat();
             } else {
@@ -326,6 +418,14 @@
         }
         
         function verifyPassword() {
+            // 再次检查锁定状态
+            const lockStatus = isLockedOut();
+            if (lockStatus.locked) {
+                alert(`访问已被锁定，请 ${lockStatus.remainingMinutes} 分钟后重试`);
+                hideAuth();
+                return;
+            }
+            
             const input = document.getElementById('auth-password');
             const error = document.getElementById('auth-error');
             
@@ -333,10 +433,22 @@
                 isAuthenticated = true;
                 input.value = '';
                 error.classList.add('hidden');
+                resetAttempts();
                 hideAuth();
                 toggleChat();
             } else {
-                error.classList.remove('hidden');
+                const attempts = recordFailedAttempt();
+                const remaining = MAX_ATTEMPTS - attempts;
+                
+                if (remaining > 0) {
+                    error.textContent = `密码错误，还剩 ${remaining} 次机会`;
+                    error.classList.remove('hidden');
+                } else {
+                    error.textContent = '错误次数过多，已锁定1小时';
+                    error.classList.remove('hidden');
+                    setTimeout(hideAuth, 2000);
+                }
+                
                 input.value = '';
             }
         }
@@ -379,6 +491,9 @@
             if (page.includes('特性')) return 'OpenClaw 的核心特性包括：本地优先架构、多智能体协作、MCP 协议支持、安全加固、Skill 系统等。你想了解哪个特性的详细信息？';
             return '感谢你的问题！关于 "' + q + '"，我暂时还在学习中。你可以查看页面上的详细内容，或者去 GitHub 社区提问：github.com/openclaw/openclaw';
         }
+        
+        // 启动初始化
+        init();
     </script>
 
     <style>
