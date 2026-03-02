@@ -62,6 +62,41 @@
 
 ---
 
+## 视频教程
+
+### Bilibili（已验证）
+1. **[【2026最新Clawdbot/OpenClaw部署教程】接入微信/飞书/钉钉/QQ](https://www.bilibili.com/video/BV1jEAaz3E6K/)**
+   - 10分钟手把手保姆级教程
+   - UP主：技术爬爬虾
+   - 播放量：1.2万+
+
+2. **[OpenClaw(Clawdbot)手把手安装教程](https://www.bilibili.com/video/BV1JVFLzfEZH)**
+   - 让你的电脑变成自己干活儿的AI智能体
+   - UP主：水山AI漫谈
+
+3. **[Moltbot完整教程：一键安装并接入OpenRouter + DeepSeek](https://www.bilibili.com/video/BV1gM6CBMEUv/)**
+   - 全网最新最详细的云服务器部署实操教程
+   - 时长：1小时57分钟
+
+4. **[OpenClaw新手必看！从零到精通](https://www.bilibili.com/read/cv45574675)**
+   - B站专栏文章
+   - 从认识OpenClaw到实战案例完整路径
+
+5. **[一夜爆火的OpenClaw，背后是蔓延的"AI落后焦虑"](https://www.bilibili.com/video/BV1DxFazREAG/)**
+   - 零门槛OpenClaw教程
+   - UP主：图灵的猫
+
+6. **[OpenClaw保姆级教程：带你免费调用Qwen3.5](https://www.bilibili.com/video/BV19CZeBPEfa/)**
+   - 小白也能懂
+   - UP主：磊哥聊AI
+
+### 专栏文章
+7. **[2026年OpenClaw本地部署步骤及云上一键部署](https://www.bilibili.com/read/cv45348907)**
+   - 详细拆解本地部署全流程
+   - 阿里云专属部署方案
+
+---
+
 ## 贡献指南
 
 发现好的 OpenClaw 相关文章？请确保：
