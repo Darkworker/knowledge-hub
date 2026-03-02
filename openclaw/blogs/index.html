@@ -261,5 +261,88 @@
             <p>宁缺毋滥，只收录有效资源 | 最后更新：2026年3月2日</p>
         </div>
     </div>
+
+    <!-- AI 问答助手 -->
+    <div id="ai-assistant-widget">
+        <button id="ai-assistant-btn" onclick="toggleChat()" title="AI 问答助手">🤖</button>
+        <div id="ai-chat-panel" class="hidden">
+            <div class="chat-header">
+                <span>🤖 AI 问答助手</span>
+                <button onclick="toggleChat()">✕</button>
+            </div>
+            <div class="chat-context">
+                <small>📄 当前页面：<span id="current-page"></span></small>
+            </div>
+            <div id="chat-messages">
+                <div class="message ai-message">
+                    你好！我是 OpenClaw 知识库 AI 助手。我可以帮你解答关于当前页面的问题，或者帮你查找相关知识。请问有什么可以帮你的？
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="输入你的问题..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('current-page').textContent = document.title;
+        function toggleChat() {
+            document.getElementById('ai-chat-panel').classList.toggle('hidden');
+        }
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+            addMessage(msg, 'user');
+            input.value = '';
+            setTimeout(() => {
+                const resp = generateResponse(msg, document.title);
+                addMessage(resp, 'ai');
+            }, 500);
+        }
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = 'message ' + sender + '-message';
+            div.textContent = text;
+            const msgs = document.getElementById('chat-messages');
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+        function generateResponse(q, page) {
+            q = q.toLowerCase();
+            if (q.includes('openclaw') && q.includes('是什么')) return 'OpenClaw 是一个开源的 AI Agent 框架，让个人和企业能够部署自主运行的 AI 助手。它起源于奥地利开发者 Peter Steinberger 的周末项目，在短短两个月内 GitHub 星标突破 10 万+。';
+            if (q.includes('安装') || q.includes('部署')) return 'OpenClaw 的安装很简单：1) 克隆 GitHub 仓库；2) 安装依赖；3) 配置 API 密钥；4) 启动服务。详细的安装教程可以参考 Bilibili 上的视频教程。';
+            if (q.includes('moltbook')) return 'Moltbook 是一个 Reddit 风格的社交平台，上面有 32,000+ 个 OpenClaw AI Agent 在自主互动，形成了超过 10,000 个兴趣社区。';
+            if (page.includes('博客')) return '关于博客文章的问题，我可以帮你查找相关教程。你想了解哪方面的内容？安装部署、使用技巧、还是业务应用案例？';
+            if (page.includes('特性')) return 'OpenClaw 的核心特性包括：本地优先架构、多智能体协作、MCP 协议支持、安全加固、Skill 系统等。你想了解哪个特性的详细信息？';
+            return '感谢你的问题！关于 "' + q + '"，我暂时还在学习中。你可以查看页面上的详细内容，或者去 GitHub 社区提问：github.com/openclaw/openclaw';
+        }
+    </script>
+
+    <style>
+        #ai-assistant-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+        #ai-assistant-btn { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(102,126,234,0.4); transition: all 0.3s; }
+        #ai-assistant-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(102,126,234,0.5); }
+        #ai-chat-panel { position: absolute; bottom: 70px; right: 0; width: 360px; height: 480px; background: white; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: flex; flex-direction: column; overflow: hidden; }
+        #ai-chat-panel.hidden { display: none; }
+        .chat-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header span { font-weight: 600; }
+        .chat-header button { background: none; border: none; color: white; font-size: 18px; cursor: pointer; }
+        .chat-context { background: #f8f9fa; padding: 8px 16px; border-bottom: 1px solid #e8e8e8; }
+        .chat-context small { color: #666; }
+        #chat-messages { flex: 1; overflow-y: auto; padding: 16px; }
+        .message { margin-bottom: 12px; padding: 12px 16px; border-radius: 12px; max-width: 85%; word-wrap: break-word; }
+        .ai-message { background: #f0f7ff; color: #333; margin-right: auto; }
+        .user-message { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-left: auto; }
+        .chat-input { display: flex; padding: 12px 16px; border-top: 1px solid #e8e8e8; gap: 8px; }
+        .chat-input input { flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-size: 14px; }
+        .chat-input input:focus { border-color: #667eea; }
+        .chat-input button { padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 14px; }
+        @media (max-width: 480px) { #ai-chat-panel { width: calc(100vw - 40px); right: -10px; } }
+    </style>
 </body>
 </html>
