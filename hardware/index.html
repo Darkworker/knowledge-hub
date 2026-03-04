@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent 新闻追踪 - Knowledge Hub</title>
+    <title>硬件资讯 - Knowledge Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -46,12 +46,12 @@
             color: #666;
             font-size: 14px;
         }
-        .news-list {
+        .content-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
-        .news-item {
+        .content-item {
             background: white;
             border-radius: 12px;
             padding: 24px;
@@ -60,31 +60,20 @@
             color: inherit;
             transition: all 0.3s;
         }
-        .news-item:hover {
+        .content-item:hover {
             transform: translateY(-4px);
             box-shadow: 0 4px 16px rgba(0,0,0,0.1);
         }
-        .news-date {
-            font-size: 12px;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .news-title {
+        .content-title {
             font-size: 18px;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 8px;
         }
-        .news-desc {
+        .content-desc {
             font-size: 14px;
             color: #666;
             line-height: 1.6;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
         }
     </style>
 </head>
@@ -93,27 +82,16 @@
         <a href="../index.html" class="back-link">← 返回知识库首页</a>
 
         <div class="header">
-            <h1>🤖 AI Agent 新闻追踪</h1>
+            <h1>💻 硬件资讯</h1>
             <div class="header-meta">
-                追踪 AI Agent 领域最新动态、融资、技术突破与安全事件
+                硬件价格走势、性能评测与购买指南
             </div>
         </div>
 
-        <div class="news-list">
-            <a href="./2026/03/2026-03-04.html" class="news-item">
-                <div class="news-date">2026年3月4日</div>
-                <div class="news-title">AI Agent 新闻周报 - 2026年3月4日</div>
-                <div class="news-desc">融资热潮持续（月之暗面、银河通用、华美浩联）、Fujitsu AI平台实现100倍开发效率、OpenClaw/Gemini安全漏洞披露</div>
-            </a>
-            <a href="./2026/03/2026-03-02.html" class="news-item">
-                <div class="news-date">2026年3月2日</div>
-                <div class="news-title">AI Agent 领域新闻摘要 - 2026年3月2日</div>
-                <div class="news-desc">国产大模型 Agent 能力升级、OpenClaw 生态爆发、2025年 AI 融资创历史新高、多智能体协作成为主流架构</div>
-            </a>
-            <a href="./2026/03/2026-03-01.html" class="news-item">
-                <div class="news-date">2026年3月1日</div>
-                <div class="news-title">AI Agent 领域新闻追踪 - 2026年3月1日</div>
-                <div class="news-desc">MIT/斯坦福《2025 AI Agent Index》发布、融资动态、技术突破、安全事件与行业趋势分析</div>
+        <div class="content-list">
+            <a href="./ram-prices.html" class="content-item">
+                <div class="content-title">内存条价格走势</div>
+                <div class="content-desc">DDR4/DDR5 内存价格历史数据与趋势分析</div>
             </a>
         </div>
     </div>
