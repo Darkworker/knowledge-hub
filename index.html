@@ -45,7 +45,19 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
+        .update-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
         .category-card {
+            position: relative;
             background: rgba(255,255,255,0.1);
             border-radius: 16px;
             padding: 32px;
@@ -89,16 +101,19 @@
         <div class="section-title">📂 知识分类</div>
         <div class="categories">
             <a href="./openclaw/index.html" class="category-card">
+                <span class="update-badge">3月10日更新</span>
                 <div class="category-icon">🦀</div>
                 <h2>OpenClaw 专题</h2>
                 <p>开源 AI Agent 框架：最新特性、社区动态与业务应用案例</p>
             </a>
             <a href="./ai-news/index.html" class="category-card">
+                <span class="update-badge">3月7日更新</span>
                 <div class="category-icon">🤖</div>
                 <h2>AI Agent 新闻</h2>
                 <p>追踪 AI Agent 领域最新动态、融资、技术突破与安全事件</p>
             </a>
             <a href="./hardware/ram-prices.html" class="category-card">
+                <span class="update-badge">3月4日更新</span>
                 <div class="category-icon">💾</div>
                 <h2>硬件价格</h2>
                 <p>内存条、显卡等硬件价格走势追踪</p>
@@ -106,7 +121,7 @@
         </div>
     </div>
     <div class="update-time">
-        最后更新：2026-03-04 | 自动维护中
+        最后更新：2026-03-11 | 自动维护中
     </div>
 </body>
 </html>
