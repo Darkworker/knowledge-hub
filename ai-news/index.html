@@ -4,89 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Agent 新闻追踪 - Knowledge Hub</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f5f7fa;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #667eea;
-            text-decoration: none;
-            margin-bottom: 24px;
-            font-size: 14px;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .header {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-        }
-        .header-meta {
-            color: #666;
-            font-size: 14px;
-        }
-        .news-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .news-item {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s;
-        }
-        .news-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        .news-date {
-            font-size: 12px;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .news-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        .news-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/theme.css">
 </head>
 <body>
     <div class="container">
@@ -94,63 +12,67 @@
 
         <div class="header">
             <h1>🤖 AI Agent 新闻追踪</h1>
-            <div class="header-meta">
-                追踪 AI Agent 领域最新动态、融资、技术突破与安全事件
-            </div>
+            <div class="header-meta">追踪 AI Agent 领域最新动态、融资、技术突破与安全事件</div>
         </div>
 
-        <div class="news-list">
-            <a href="./2026/03/2026-03-11.html" class="news-item">
-                <div class="news-date">2026年3月11日 · 今日</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月11日</div>
-                <div class="news-desc">知识库维护日报：GitHub Pages迁移、定时任务优化、监控Agent部署</div>
+        <div class="list-container">
+            <a href="./2026/03/2026-03-11.html" class="list-item">
+                <div class="item-date">2026年3月11日 · 今日</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月11日</div>
+                <div class="item-desc">知识库维护日报：GitHub Pages迁移、定时任务优化、监控Agent部署</div>
             </a>
-            <a href="./2026/03/2026-03-10.html" class="news-item">
-                <div class="news-date">2026年3月10日</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月10日</div>
-                <div class="news-desc">OpenAI Operator企业版、Google Astra 2.0全球发布、法兰克福闪崩事件、Agent幻觉责任诉讼</div>
+            <a href="./2026/03/2026-03-10.html" class="list-item">
+                <div class="item-date">2026年3月10日</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月10日</div>
+                <div class="item-desc">OpenAI Operator企业版、Google Astra 2.0全球发布、法兰克福闪崩事件、Agent幻觉责任诉讼</div>
             </a>
-            <a href="./2026/03/2026-03-09.html" class="news-item">
-                <div class="news-date">2026年3月9日</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月9日</div>
-                <div class="news-desc">周一前瞻：本周关注OpenAI、Google DeepMind、Anthropic动态</div>
+            <a href="./2026/03/2026-03-09.html" class="list-item">
+                <div class="item-date">2026年3月9日</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月9日</div>
+                <div class="item-desc">周一前瞻：本周关注OpenAI、Google DeepMind、Anthropic动态</div>
             </a>
-            <a href="./2026/03/2026-03-08.html" class="news-item">
-                <div class="news-date">2026年3月8日 · 周末</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月8日</div>
-                <div class="news-desc">周末简讯：AI Agent领域相对平静，关注下周重要更新</div>
+            <a href="./2026/03/2026-03-08.html" class="list-item">
+                <div class="item-date">2026年3月8日 · 周末</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月8日</div>
+                <div class="item-desc">周末简讯：AI Agent领域相对平静，关注下周重要更新</div>
             </a>
-            <a href="./2026/03/2026-03-07.html" class="news-item">
-                <div class="news-date">2026年3月7日</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月7日</div>
-                <div class="news-desc">今日新闻内容将在下午更新生成（当前为占位文件）</div>
+            <a href="./2026/03/2026-03-07.html" class="list-item">
+                <div class="item-date">2026年3月7日</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月7日</div>
+                <div class="item-desc">今日新闻内容将在下午更新生成（当前为占位文件）</div>
             </a>
-            <a href="./2026/03/2026-03-06.html" class="news-item">
-                <div class="news-date">2026年3月6日</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月6日</div>
-                <div class="news-desc">Claude 4 Omni震撼发布、微软AutoDev Agent v3、Meta Llama Agents 4框架开源、融资超4.12亿美元</div>
+            <a href="./2026/03/2026-03-06.html" class="list-item">
+                <div class="item-date">2026年3月6日</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月6日</div>
+                <div class="item-desc">Claude 4 Omni震撼发布、微软AutoDev Agent v3、Meta Llama Agents 4框架开源、融资超4.12亿美元</div>
             </a>
-            <a href="./2026/03/2026-03-05.html" class="news-item">
-                <div class="news-date">2026年3月5日</div>
-                <div class="news-title">AI Agent 新闻日报 - 2026年3月5日</div>
-                <div class="news-desc">AgentForce获1.5亿美元B轮、OpenAI ChatGPT Enterprise Agent Mode、Google MemGPT-2架构、融资超3亿美元</div>
+            <a href="./2026/03/2026-03-05.html" class="list-item">
+                <div class="item-date">2026年3月5日</div>
+                <div class="item-title">AI Agent 新闻日报 - 2026年3月5日</div>
+                <div class="item-desc">AgentForce获1.5亿美元B轮、OpenAI ChatGPT Enterprise Agent Mode、Google MemGPT-2架构、融资超3亿美元</div>
             </a>
-            <a href="./2026/03/2026-03-04.html" class="news-item">
-                <div class="news-date">2026年3月4日</div>
-                <div class="news-title">AI Agent 新闻周报 - 2026年3月4日</div>
-                <div class="news-desc">融资热潮持续（月之暗面、银河通用、华美浩联）、Fujitsu AI平台实现100倍开发效率、OpenClaw/Gemini安全漏洞披露</div>
+            <a href="./2026/03/2026-03-04.html" class="list-item">
+                <div class="item-date">2026年3月4日</div>
+                <div class="item-title">AI Agent 新闻周报 - 2026年3月4日</div>
+                <div class="item-desc">融资热潮持续（月之暗面、银河通用、华美浩联）、Fujitsu AI平台实现100倍开发效率、OpenClaw/Gemini安全漏洞披露</div>
             </a>
-            <a href="./2026/03/2026-03-02.html" class="news-item">
-                <div class="news-date">2026年3月2日</div>
-                <div class="news-title">AI Agent 领域新闻摘要 - 2026年3月2日</div>
-                <div class="news-desc">国产大模型 Agent 能力升级、OpenClaw 生态爆发、2025年 AI 融资创历史新高、多智能体协作成为主流架构</div>
+            <a href="./2026/03/2026-03-02.html" class="list-item">
+                <div class="item-date">2026年3月2日</div>
+                <div class="item-title">AI Agent 领域新闻摘要 - 2026年3月2日</div>
+                <div class="item-desc">国产大模型 Agent 能力升级、OpenClaw 生态爆发、2025年 AI 融资创历史新高、多智能体协作成为主流架构</div>
             </a>
-            <a href="./2026/03/2026-03-01.html" class="news-item">
-                <div class="news-date">2026年3月1日</div>
-                <div class="news-title">AI Agent 领域新闻追踪 - 2026年3月1日</div>
-                <div class="news-desc">MIT/斯坦福《2025 AI Agent Index》发布、融资动态、技术突破、安全事件与行业趋势分析</div>
+            <a href="./2026/03/2026-03-01.html" class="list-item">
+                <div class="item-date">2026年3月1日</div>
+                <div class="item-title">AI Agent 领域新闻追踪 - 2026年3月1日</div>
+                <div class="item-desc">MIT/斯坦福《2025 AI Agent Index》发布、融资动态、技术突破、安全事件与行业趋势分析</div>
             </a>
         </div>
+
+        <div class="update-time">
+            每天早上 9:00 自动更新 | Knowledge Hub
+        </div>
     </div>
+
+    <script src="../assets/theme.js"></script>
 </body>
 </html>

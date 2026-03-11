@@ -4,87 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenClaw 每日动态 - Knowledge Hub</title>
+    <link rel="stylesheet" href="../../assets/theme.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f5f7fa;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #667eea;
-            text-decoration: none;
-            margin-bottom: 24px;
-            font-size: 14px;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .header {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-        }
-        .header-meta {
-            color: #666;
-            font-size: 14px;
-        }
-        .daily-list {
+        .daily-item .item-desc {
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
         }
-        .daily-item {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s;
-        }
-        .daily-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        .daily-date {
+        .daily-item .item-desc span:last-child {
             font-size: 12px;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .daily-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        .daily-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
+            color: var(--text-muted);
         }
     </style>
 </head>
@@ -94,28 +23,41 @@
 
         <div class="header">
             <h1>📅 OpenClaw 每日动态</h1>
-            <div class="header-meta">
-                每日更新 OpenClaw 社区动态、新特性、安全公告与博客推荐
-            </div>
+            <div class="header-meta">每日更新 OpenClaw 社区动态、新特性、安全公告与博客推荐</div>
         </div>
 
-        <div class="daily-list">
-            <a href="./2026-03-10.html" class="daily-item">
-                <div class="daily-date">2026年3月10日</div>
-                <div class="daily-title">OpenClaw 每日动态 - 2026年3月10日</div>
-                <div class="daily-desc">2026.3.1 RC 预览、Agent 并行优化、社区热点讨论</div>
+        <div class="list-container">
+            <a href="./2026-03-10.html" class="list-item daily-item">
+                <div class="item-date">2026年3月10日 · 最新</div>
+                <div class="item-title">OpenClaw 每日动态 - 2026年3月10日</div>
+                <div class="item-desc">
+                    <span>2026.3.1 RC 预览、Agent 并行优化、社区热点讨论</span>
+                    <span>10分钟阅读</span>
+                </div>
             </a>
-            <a href="./2026-03-04.html" class="daily-item">
-                <div class="daily-date">2026年3月4日</div>
-                <div class="daily-title">OpenClaw 每日动态 - 2026年3月4日</div>
-                <div class="daily-desc">200K+ Stars 里程碑、安全公告、CVE 漏洞修复、社区动态</div>
+            <a href="./2026-03-04.html" class="list-item daily-item">
+                <div class="item-date">2026年3月4日</div>
+                <div class="item-title">OpenClaw 每日动态 - 2026年3月4日</div>
+                <div class="item-desc">
+                    <span>200K+ Stars 里程碑、安全公告、CVE 漏洞修复、社区动态</span>
+                    <span>8分钟阅读</span>
+                </div>
             </a>
-            <a href="./2026-03-02.md" class="daily-item">
-                <div class="daily-date">2026年3月2日</div>
-                <div class="daily-title">OpenClaw 每日动态 - 2026年3月2日</div>
-                <div class="daily-desc">185K+ Stars 里程碑、多智能体协作架构讨论、CLAW-10 发布</div>
+            <a href="./2026-03-02.html" class="list-item daily-item">
+                <div class="item-date">2026年3月2日</div>
+                <div class="item-title">OpenClaw 每日动态 - 2026年3月2日</div>
+                <div class="item-desc">
+                    <span>185K+ Stars 里程碑、多智能体协作架构讨论、CLAW-10 发布</span>
+                    <span>6分钟阅读</span>
+                </div>
             </a>
         </div>
+
+        <div class="update-time">
+            每天早上 9:00 自动更新 | Knowledge Hub
+        </div>
     </div>
+
+    <script src="../../assets/theme.js"></script>
 </body>
 </html>

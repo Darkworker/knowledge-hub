@@ -4,48 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenClaw 专题 - Knowledge Hub</title>
+    <link rel="stylesheet" href="../assets/theme.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f5f7fa;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #667eea;
-            text-decoration: none;
-            margin-bottom: 24px;
-            font-size: 14px;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 48px;
-            border-radius: 16px;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        .header p {
-            opacity: 0.9;
-            font-size: 16px;
-        }
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -53,19 +13,20 @@
             margin-bottom: 32px;
         }
         .nav-card {
-            background: white;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 24px;
             text-decoration: none;
-            color: inherit;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: var(--text-primary);
             transition: all 0.3s;
-            border: 2px solid transparent;
+            box-shadow: 0 2px 8px var(--shadow);
         }
         .nav-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            border-color: #667eea;
+            background: var(--bg-card-hover);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 24px var(--shadow);
         }
         .nav-icon {
             font-size: 32px;
@@ -74,19 +35,19 @@
         .nav-card h3 {
             font-size: 18px;
             font-weight: 600;
-            color: #1a1a1a;
             margin-bottom: 8px;
         }
         .nav-card p {
+            color: var(--text-secondary);
             font-size: 14px;
-            color: #666;
         }
         .daily-section {
-            background: white;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 32px;
             margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px var(--shadow);
         }
         .daily-header {
             display: flex;
@@ -94,12 +55,12 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 16px;
-            border-bottom: 2px solid #f0f2f5;
+            border-bottom: 1px solid var(--border-color);
         }
         .daily-header h2 {
             font-size: 22px;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
         }
         .daily-date {
             font-size: 14px;
@@ -109,16 +70,31 @@
         .daily-content h3 {
             font-size: 16px;
             font-weight: 600;
-            color: #333;
+            color: var(--text-primary);
             margin: 20px 0 10px;
         }
         .daily-content ul {
             margin: 12px 0;
             padding-left: 24px;
+            color: var(--text-secondary);
         }
         .daily-content li {
             margin-bottom: 8px;
-            color: #555;
+        }
+        .security-alert {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .security-alert h4 {
+            color: #ffc107;
+            margin-bottom: 8px;
+        }
+        .security-alert ul {
+            color: var(--text-secondary);
+            margin-left: 20px;
         }
         .stats-grid {
             display: grid;
@@ -127,7 +103,7 @@
             margin: 24px 0;
         }
         .stat-item {
-            background: #f8f9fa;
+            background: var(--bg-card-hover);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
@@ -139,29 +115,8 @@
         }
         .stat-label {
             font-size: 13px;
-            color: #666;
+            color: var(--text-secondary);
             margin-top: 4px;
-        }
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-            font-size: 14px;
-        }
-        .security-alert {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 16px 0;
-        }
-        .security-alert h4 {
-            color: #856404;
-            margin-bottom: 8px;
-        }
-        .security-alert ul {
-            color: #856404;
-            margin-left: 20px;
         }
     </style>
 </head>
@@ -171,11 +126,11 @@
 
         <div class="header">
             <h1>🦀 OpenClaw 专题</h1>
-            <p>开源 AI Agent 框架 | 每日更新 | 社区驱动</p>
+            <div class="header-meta">开源 AI Agent 框架 | 每日更新 | 社区驱动</div>
         </div>
 
         <div class="nav-grid">
-            <a href="./daily/2026-03-10.html" class="nav-card">
+            <a href="./daily/index.html" class="nav-card">
                 <div class="nav-icon">📅</div>
                 <h3>每日动态</h3>
                 <p>热点讨论、新特性、博客精选</p>
@@ -257,9 +212,11 @@
             </div>
         </div>
 
-        <div class="footer">
-            <p>每天早上 9:00 自动更新 | Knowledge Hub</p>
+        <div class="update-time">
+            每天早上 9:00 自动更新 | Knowledge Hub
         </div>
     </div>
+
+    <script src="../assets/theme.js"></script>
 </body>
 </html>
