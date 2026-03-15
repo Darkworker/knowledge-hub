@@ -118,6 +118,16 @@
             color: var(--text-secondary);
             margin-top: 4px;
         }
+        .version-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
     </style>
 </head>
 <body>
@@ -154,41 +164,51 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-10）</h2>
+                <h2>📅 今日动态（2026-03-15）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
-                <h3>🔥 热点讨论</h3>
+                <h3>🚀 版本更新</h3>
                 <ul>
-                    <li>GitHub 社区：2026.3.1 版本发布筹备，核心团队预告下周发布重大更新</li>
-                    <li>Agent 并行执行优化：社区 PR #8921 合并，性能提升 40%</li>
-                    <li>Reddit 经验分享：使用 OpenClaw 构建自动化投资分析工作流</li>
-                    <li>Discord 开发者频道：讨论新 MCP 协议扩展提案</li>
+                    <li><strong>OpenClaw 3.12 正式发布</strong>（2026-03-14）：统一仪表板、高级自动化引擎、暗黑模式优化、内存开销减少 15%</li>
+                    <li><strong>OpenClaw 2.26 重大更新</strong>（2026-02-27）：Cron Job 可靠性修复、外部密钥管理（openclaw secrets）、ACP 线程绑定 Agent、多语言记忆增强</li>
+                    <li><strong>OpenClaw 2026.2.23</strong>：安全加固、可选 HSTS 头部、配置脱敏、推理泄漏保护</li>
                 </ul>
 
-                <h3>🚀 新特性</h3>
+                <h3>🔥 热点讨论</h3>
                 <ul>
-                    <li>2026.3.1 RC 预览版：智能任务调度、增强型记忆搜索、流式响应优化</li>
-                    <li>实验性功能：多 Agent 协作模式、自动 Git 提交</li>
-                    <li>新增 CLI 命令：openclaw task queue 查看任务队列状态</li>
-                    <li>内存占用优化：大项目场景下内存使用降低 25%</li>
+                    <li>GitHub Stars 突破 <strong>215,000+</strong>，Forks 达 35,000+</li>
+                    <li>Discord 社区严格执行无加密货币政策，创始人 Peter Steinberger 公开确认</li>
+                    <li>中国市场"养龙虾"热潮持续，MiniMax 股价自 IPO 上涨超 600%</li>
+                    <li>社区项目 n8n-claw：基于 n8n + Supabase + Claude 的 OpenClaw 实现</li>
                 </ul>
 
                 <h3>🛡️ 安全公告</h3>
                 <div class="security-alert">
-                    <h4>⚠️ 近期安全建议</h4>
+                    <h4>⚠️ 严重安全事件回顾</h4>
                     <ul>
-                        <li>API 密钥轮换：建议定期更换 Kimi/OpenAI API Key</li>
-                        <li>定时任务审查：检查 cron job 错误日志</li>
-                        <li>依赖包更新：更新至最新安全版本</li>
+                        <li><strong>CVE-2026-25253（CVSS 8.8）</strong>：一键 RCE 漏洞，影响版本 &lt; 2026.1.29</li>
+                        <li><strong>ClawHavoc 攻击</strong>：335 个恶意 Skills 通过 ClawHub 分发，约占注册表 12%</li>
+                        <li><strong>大规模暴露</strong>：21,639 个公开暴露实例，泄露 API 密钥和凭证</li>
+                        <li><strong>Moltbook 数据泄露</strong>：35,000 邮箱地址和 150 万 Agent API 令牌暴露</li>
                     </ul>
-                    <p><strong>注意：近期观察到部分定时任务 API 通信异常</strong></p>
+                    <p><strong>建议：立即升级至 2026.2.23+ 版本，定期运行 openclaw security audit --deep</strong></p>
                 </div>
 
-                <h3>📝 精选讨论</h3>
+                <h3>📊 关键数据更新</h3>
                 <ul>
-                    <li>Agent 长期运行稳定性优化：启用 memory.compact、配置 healthcheck</li>
-                    <li>Skill 开发最佳实践：使用 async 模式、添加详细错误处理</li>
+                    <li>Moltbook 活跃 Agents：从 32,000+ 增长至 <strong>770,000+</strong></li>
+                    <li>ClawHub 恶意包：从 1,184 个增至 <strong>1,200+</strong>（已清理）</li>
+                    <li>Discord 成员：<strong>18,5K+</strong></li>
+                    <li>Skills 数量：<strong>1,200+</strong></li>
+                </ul>
+
+                <h3>📝 技术亮点</h3>
+                <ul>
+                    <li>MCP 协议成为标准集成方案，与 20+ 顶级 Agent 系统兼容</li>
+                    <li>A2A（Agent-to-Agent）协议实现跨平台协作</li>
+                    <li>浏览器 SSRF 策略默认切换到受信任网络模式</li>
+                    <li>新增 Mistral 提供商支持，提升非英语环境语义搜索性能</li>
                 </ul>
             </div>
 
@@ -198,22 +218,22 @@
                     <div class="stat-label">GitHub Stars</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">18.5K+</div>
-                    <div class="stat-label">Discord 成员</div>
+                    <div class="stat-value">35K+</div>
+                    <div class="stat-label">Forks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">770K+</div>
+                    <div class="stat-label">Moltbook Agents</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">1,200+</div>
-                    <div class="stat-label">Skill 数量</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">45K+</div>
-                    <div class="stat-label">活跃 Agents</div>
+                    <div class="stat-label">Skills 数量</div>
                 </div>
             </div>
         </div>
 
         <div class="update-time">
-            每天早上 9:00 自动更新 | Knowledge Hub
+            最后更新：2026-03-15 | Knowledge Hub
         </div>
     </div>
 
