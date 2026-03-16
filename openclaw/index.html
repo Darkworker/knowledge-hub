@@ -88,9 +88,16 @@
             padding: 16px;
             margin: 16px 0;
         }
+        .security-alert.critical {
+            background: rgba(244, 67, 54, 0.1);
+            border-color: rgba(244, 67, 54, 0.3);
+        }
         .security-alert h4 {
             color: #ffc107;
             margin-bottom: 8px;
+        }
+        .security-alert.critical h4 {
+            color: #f44336;
         }
         .security-alert ul {
             color: var(--text-secondary);
@@ -128,6 +135,25 @@
             font-weight: 600;
             margin-left: 8px;
         }
+        .feature-highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .cve-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .cve-critical { background: #f44336; color: white; }
+        .cve-high { background: #ff9800; color: white; }
+        .cve-medium { background: #ffc107; color: #333; }
+        .cve-low { background: #4caf50; color: white; }
     </style>
 </head>
 <body>
@@ -164,61 +190,65 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-15）<span class="version-badge">最新</span></h2>
+                <h2>📅 今日动态（2026-03-16）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
-                <h3>🚀 版本更新</h3>
-                <ul>
-                    <li><strong>OpenClaw 3.12 正式发布</strong>（2026-03-14）：统一仪表板、高级自动化引擎、暗黑模式优化、内存开销减少 15%</li>
-                    <li><strong>OpenClaw 2.26 重大更新</strong>（2026-02-27）：Cron Job 可靠性修复、外部密钥管理（openclaw secrets）、ACP 线程绑定 Agent、多语言记忆增强</li>
-                    <li><strong>OpenClaw 2026.2.23</strong>：安全加固、可选 HSTS 头部、配置脱敏、推理泄漏保护</li>
-                </ul>
+                <h3>🚀 重大版本更新</h3>
+                <div class="feature-highlight">
+                    <strong>OpenClaw 2026.3.7-beta 发布</strong> - 这是历史上最重要的更新之一
+                    <ul>
+                        <li><strong>ContextEngine</strong>：革命性的上下文管理插件接口，支持完整的生命周期钩子</li>
+                        <li><strong>89个提交</strong>，<strong>200+ bug修复</strong>，标志着框架的成熟</li>
+                        <li><strong>双引擎路由</strong>：智能模型回退和重试机制</li>
+                        <li>Discord 连接冻结修复、Telegram 话题级代理隔离</li>
+                    </ul>
+                </div>
 
                 <h3>🔥 热点讨论</h3>
                 <ul>
-                    <li>GitHub Stars 突破 <strong>215,000+</strong>，Forks 达 35,000+</li>
-                    <li>Discord 社区严格执行无加密货币政策，创始人 Peter Steinberger 公开确认</li>
-                    <li>中国市场"养龙虾"热潮持续，MiniMax 股价自 IPO 上涨超 600%</li>
-                    <li>社区项目 n8n-claw：基于 n8n + Supabase + Claude 的 OpenClaw 实现</li>
+                    <li>GitHub Stars 突破 <strong>200,000+</strong>，Forks 达 31,239+</li>
+                    <li>ContextEngine 被誉为"开发者等待已久的功能"</li>
+                    <li>Moltbook 活跃 Agents 增长至 <strong>770,000+</strong></li>
+                    <li>Discord 社区严格执行无加密货币政策</li>
                 </ul>
 
-                <h3>🛡️ 安全公告</h3>
-                <div class="security-alert">
-                    <h4>⚠️ 严重安全事件回顾</h4>
+                <h3>🛡️ 紧急安全公告</h3>
+                <div class="security-alert critical">
+                    <h4>⚠️ 新增高危 CVE（2026年3月）</h4>
                     <ul>
-                        <li><strong>CVE-2026-25253（CVSS 8.8）</strong>：一键 RCE 漏洞，影响版本 &lt; 2026.1.29</li>
-                        <li><strong>ClawHavoc 攻击</strong>：335 个恶意 Skills 通过 ClawHub 分发，约占注册表 12%</li>
-                        <li><strong>大规模暴露</strong>：21,639 个公开暴露实例，泄露 API 密钥和凭证</li>
-                        <li><strong>Moltbook 数据泄露</strong>：35,000 邮箱地址和 150 万 Agent API 令牌暴露</li>
+                        <li><span class="cve-badge cve-high">CVSS 8.1</span><strong>CVE-2026-32302</strong>：WebSocket Origin Bypass via Trusted Proxy，影响版本 &lt; 2026.3.11</li>
+                        <li><span class="cve-badge cve-medium">CVSS 6.3</span><strong>CVE-2026-40396</strong>：远程代码执行，Skill Env Handler 代码注入</li>
+                        <li><span class="cve-badge cve-low">CVSS 3.3</span><strong>CVE-2026-40403</strong>：本地信息泄露，File Existence Handler</li>
+                        <li><span class="cve-badge cve-high">CVSS 8.4</span><strong>CVE-2026-28485</strong>：未认证浏览器控制 RCE</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.1</span><strong>CVE-2026-28482</strong>：路径遍历漏洞</li>
                     </ul>
-                    <p><strong>建议：立即升级至 2026.2.23+ 版本，定期运行 openclaw security audit --deep</strong></p>
+                    <p><strong>立即升级至 2026.3.11+ 版本！</strong></p>
                 </div>
 
                 <h3>📊 关键数据更新</h3>
                 <ul>
-                    <li>Moltbook 活跃 Agents：从 32,000+ 增长至 <strong>770,000+</strong></li>
-                    <li>ClawHub 恶意包：从 1,184 个增至 <strong>1,200+</strong>（已清理）</li>
-                    <li>Discord 成员：<strong>18,5K+</strong></li>
-                    <li>Skills 数量：<strong>1,200+</strong></li>
+                    <li>Moltbook 活跃 Agents：<strong>770,000+</strong>（从 35,000 增长而来）</li>
+                    <li>ClawHub Skills：<strong>1,200+</strong></li>
+                    <li>历史恶意包：<strong>800+</strong>（已清理，峰值曾达20%注册表）</li>
                 </ul>
 
-                <h3>📝 技术亮点</h3>
+                <h3>🔧 技术亮点</h3>
                 <ul>
-                    <li>MCP 协议成为标准集成方案，与 20+ 顶级 Agent 系统兼容</li>
-                    <li>A2A（Agent-to-Agent）协议实现跨平台协作</li>
+                    <li><strong>ContextEngine 生命周期钩子</strong>：bootstrap → ingest → assemble → compact → afterTurn</li>
+                    <li><strong>MCP 协议</strong>：与 20+ 顶级 Agent 系统兼容</li>
+                    <li><strong>Feishu 深度优化</strong>：反应通知、打字指示器、Docx 排序修复</li>
                     <li>浏览器 SSRF 策略默认切换到受信任网络模式</li>
-                    <li>新增 Mistral 提供商支持，提升非英语环境语义搜索性能</li>
                 </ul>
             </div>
 
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-value">215K+</div>
+                    <div class="stat-value">200K+</div>
                     <div class="stat-label">GitHub Stars</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">35K+</div>
+                    <div class="stat-value">31K+</div>
                     <div class="stat-label">Forks</div>
                 </div>
                 <div class="stat-item">
@@ -232,8 +262,52 @@
             </div>
         </div>
 
+        <div class="daily-section">
+            <div class="daily-header">
+                <h2>📋 版本历史速览</h2>
+            </div>
+            <div class="daily-content">
+                <table style="width:100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <th style="text-align:left; padding:12px;">日期</th>
+                            <th style="text-align:left; padding:12px;">版本</th>
+                            <th style="text-align:left; padding:12px;">主要内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-14</td>
+                            <td style="padding:12px;"><span class="version-badge">2026.3.7-beta</span></td>
+                            <td style="padding:12px;">ContextEngine 发布、89提交、200+修复</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-12</td>
+                            <td style="padding:12px;">2026.3.11</td>
+                            <td style="padding:12px;">CVE-2026-32302 WebSocket 修复</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-05</td>
+                            <td style="padding:12px;">2026.3.1</td>
+                            <td style="padding:12px;">Feishu/Discord 组件修复</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-02-27</td>
+                            <td style="padding:12px;">2026.2.26</td>
+                            <td style="padding:12px;">Cron修复、外部密钥管理</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:12px;">2026-02-23</td>
+                            <td style="padding:12px;">2026.2.23</td>
+                            <td style="padding:12px;">安全加固、HSTS支持</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="update-time">
-            最后更新：2026-03-15 | Knowledge Hub
+            最后更新：2026-03-16 | Knowledge Hub
         </div>
     </div>
 
