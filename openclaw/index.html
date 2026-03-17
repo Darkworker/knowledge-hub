@@ -154,6 +154,13 @@
         .cve-high { background: #ff9800; color: white; }
         .cve-medium { background: #ffc107; color: #333; }
         .cve-low { background: #4caf50; color: white; }
+        .china-highlight {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 142, 83, 0.1) 100%);
+            border-left: 4px solid #ff6b6b;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -190,25 +197,39 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-16）<span class="version-badge">最新</span></h2>
+                <h2>📅 今日动态（2026-03-17）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
                 <h3>🚀 重大版本更新</h3>
                 <div class="feature-highlight">
-                    <strong>OpenClaw 2026.3.7-beta 发布</strong> - 这是历史上最重要的更新之一
+                    <strong>OpenClaw 2026.3.7 正式版发布</strong> - 历史上最重要的更新之一
                     <ul>
-                        <li><strong>ContextEngine</strong>：革命性的上下文管理插件接口，支持完整的生命周期钩子</li>
-                        <li><strong>89个提交</strong>，<strong>200+ bug修复</strong>，标志着框架的成熟</li>
-                        <li><strong>双引擎路由</strong>：智能模型回退和重试机制</li>
-                        <li>Discord 连接冻结修复、Telegram 话题级代理隔离</li>
+                        <li><strong>ContextEngine</strong>：革命性的上下文管理插件接口，支持完整的生命周期钩子（bootstrap → ingest → assemble → compact → afterTurn）</li>
+                        <li><strong>89个提交</strong>，<strong>200+ bug修复</strong>，标志着框架从实验性向生产级成熟转变</li>
+                        <li><strong>GPT-5.4 原生支持</strong>：完整集成 OpenAI 最新旗舰模型，OOLONG 基准测试超越官方原生工具</li>
+                        <li><strong>Gemini 3.1 深度优化</strong>：支持视频理解功能</li>
+                        <li><strong>双引擎路由</strong>：智能模型回退和重试机制，主模型限流时自动切换备用提供商</li>
+                        <li><strong>持久化频道绑定</strong>：通过 ACP 协议实现 Discord/Telegram 深度绑定，重启后自动恢复上下文</li>
+                    </ul>
+                </div>
+
+                <h3>🇨🇳 中国"养龙虾"热潮</h3>
+                <div class="china-highlight">
+                    <strong>OpenClaw 在中国市场掀起热潮</strong>
+                    <ul>
+                        <li>被称为"养龙虾"，反映中国年轻一代的高科技采用文化</li>
+                        <li>MiniMax 股价自周末以来上涨 <strong>27.4%</strong>，较 IPO 上涨超 600%</li>
+                        <li>腾讯正在开发可集成微信的新 AI Agent</li>
+                        <li>中国 AI 实验室纷纷发布开源模型更新（Kimi 2.5、MiniMax M2.5、GLM-5）</li>
                     </ul>
                 </div>
 
                 <h3>🔥 热点讨论</h3>
                 <ul>
-                    <li>GitHub Stars 突破 <strong>200,000+</strong>，Forks 达 31,239+</li>
+                    <li>GitHub Stars 突破 <strong>280,000+</strong>（最新数据），Forks 达 31,239+</li>
                     <li>ContextEngine 被誉为"开发者等待已久的功能"</li>
+                    <li>项目正从实验性 Agent 框架演变为生产级"Agent 操作系统"</li>
                     <li>Moltbook 活跃 Agents 增长至 <strong>770,000+</strong></li>
                     <li>Discord 社区严格执行无加密货币政策</li>
                 </ul>
@@ -228,23 +249,33 @@
 
                 <h3>📊 关键数据更新</h3>
                 <ul>
-                    <li>Moltbook 活跃 Agents：<strong>770,000+</strong>（从 35,000 增长而来）</li>
+                    <li>GitHub Stars：<strong>280,000+</strong>（从 200,000 增长）</li>
+                    <li>Moltbook 活跃 Agents：<strong>770,000+</strong></li>
                     <li>ClawHub Skills：<strong>1,200+</strong></li>
                     <li>历史恶意包：<strong>800+</strong>（已清理，峰值曾达20%注册表）</li>
                 </ul>
 
                 <h3>🔧 技术亮点</h3>
                 <ul>
-                    <li><strong>ContextEngine 生命周期钩子</strong>：bootstrap → ingest → assemble → compact → afterTurn</li>
+                    <li><strong>ContextEngine 生命周期钩子</strong>：bootstrap → ingest → assemble → compact → afterTurn → prepareSubagentSpawn</li>
+                    <li><strong>Ollama 流式输出重构</strong>：完美隔离思考过程与正式响应</li>
                     <li><strong>MCP 协议</strong>：与 20+ 顶级 Agent 系统兼容</li>
                     <li><strong>Feishu 深度优化</strong>：反应通知、打字指示器、Docx 排序修复</li>
-                    <li>浏览器 SSRF 策略默认切换到受信任网络模式</li>
+                    <li><strong>安全加固</strong>：HSTS 头部、SSRF 策略默认 trusted-network、配置脱敏</li>
+                </ul>
+
+                <h3>💼 业务应用场景</h3>
+                <ul>
+                    <li><strong>每日简报</strong>：07:30 定时唤醒，总结提交、PR、会议并发送 Slack 摘要</li>
+                    <li><strong>站会管理</strong>：Discord 监听更新，自动记录阻塞问题，创建任务</li>
+                    <li><strong>值班监控</strong>：CPU 飙升自动检测，WhatsApp 发送诊断结果</li>
+                    <li><strong>全球协作</strong>：Feishu/Lark 统一回复客户查询</li>
                 </ul>
             </div>
 
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-value">200K+</div>
+                    <div class="stat-value">280K+</div>
                     <div class="stat-label">GitHub Stars</div>
                 </div>
                 <div class="stat-item">
@@ -278,8 +309,8 @@
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-14</td>
-                            <td style="padding:12px;"><span class="version-badge">2026.3.7-beta</span></td>
-                            <td style="padding:12px;">ContextEngine 发布、89提交、200+修复</td>
+                            <td style="padding:12px;"><span class="version-badge">2026.3.7</span></td>
+                            <td style="padding:12px;">ContextEngine 发布、GPT-5.4支持、89提交、200+修复</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-12</td>
@@ -299,7 +330,7 @@
                         <tr>
                             <td style="padding:12px;">2026-02-23</td>
                             <td style="padding:12px;">2026.2.23</td>
-                            <td style="padding:12px;">安全加固、HSTS支持</td>
+                            <td style="padding:12px;">安全加固、HSTS支持、配置脱敏</td>
                         </tr>
                     </tbody>
                 </table>
@@ -307,7 +338,7 @@
         </div>
 
         <div class="update-time">
-            最后更新：2026-03-16 | Knowledge Hub
+            最后更新：2026-03-17 | Knowledge Hub
         </div>
     </div>
 
