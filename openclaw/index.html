@@ -161,6 +161,13 @@
             margin: 16px 0;
             border-radius: 0 8px 8px 0;
         }
+        .mcp-highlight {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
+            border-left: 4px solid #4caf50;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -197,13 +204,23 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-18）<span class="version-badge">最新</span></h2>
+                <h2>📅 今日动态（2026-03-19）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
                 <h3>🚀 重大版本更新</h3>
                 <div class="feature-highlight">
-                    <strong>OpenClaw 2026.3.7 正式版发布</strong> - 历史上最重要的更新之一
+                    <strong>OpenClaw 3.12 正式发布</strong> - 2026年3月14日
+                    <ul>
+                        <li><strong>性能优化</strong>：显著提升响应速度和处理能力</li>
+                        <li><strong>UI 重构</strong>：全新的用户界面设计，更直观的操作体验</li>
+                        <li><strong>Bug 修复</strong>：大量已知问题修复，稳定性大幅提升</li>
+                        <li><strong>向后兼容</strong>：核心引擎保持向后兼容，部分旧版插件可能需要验证</li>
+                    </ul>
+                </div>
+
+                <div class="feature-highlight">
+                    <strong>OpenClaw 2026.3.7 正式版</strong> - 历史上最重要的更新之一
                     <ul>
                         <li><strong>ContextEngine</strong>：革命性的上下文管理插件接口，支持完整的生命周期钩子（bootstrap → ingest → assemble → compact → afterTurn）</li>
                         <li><strong>89个提交</strong>，<strong>200+ bug修复</strong>，标志着框架从实验性向生产级成熟转变</li>
@@ -211,6 +228,18 @@
                         <li><strong>Gemini 3.1 深度优化</strong>：支持视频理解功能</li>
                         <li><strong>双引擎路由</strong>：智能模型回退和重试机制，主模型限流时自动切换备用提供商</li>
                         <li><strong>持久化频道绑定</strong>：通过 ACP 协议实现 Discord/Telegram 深度绑定，重启后自动恢复上下文</li>
+                    </ul>
+                </div>
+
+                <h3>🔌 MCP 原生支持</h3>
+                <div class="mcp-highlight">
+                    <strong>Model Context Protocol (MCP) - AI 的 USB-C 接口</strong>
+                    <ul>
+                        <li><strong>原生支持</strong>：OpenClaw 现已原生支持 MCP 协议，可连接 10,000+ 外部工具</li>
+                        <li><strong>mcporter 工具</strong>：官方内置 MCP 适配工具，一键接入高德地图、GitHub、数据库等</li>
+                        <li><strong>生态爆发</strong>：MCP SDK 月下载量达 9,700 万+，成为 AI 连接标准</li>
+                        <li><strong>配置简单</strong>：通过 <code>~/.openclaw/openclaw.json</code> 即可配置 MCP 服务器</li>
+                        <li><strong>支持服务</strong>：文件系统、PostgreSQL、GitHub、Brave 搜索、Slack 等</li>
                     </ul>
                 </div>
 
@@ -226,9 +255,20 @@
                     </ul>
                 </div>
 
+                <h3>☁️ MaxClaw 云版本发布</h3>
+                <div class="feature-highlight">
+                    <strong>MiniMax 推出云托管 OpenClaw 服务（2026.2.26）</strong>
+                    <ul>
+                        <li><strong>零基础设施</strong>：无需服务器、API 密钥或 VPS，即开即用</li>
+                        <li><strong>7×24 运行</strong>：始终在线，覆盖 Telegram、WhatsApp、Slack、Discord</li>
+                        <li><strong>MiniMax M2.5</strong>：2290亿参数 MoE 架构驱动</li>
+                        <li><strong>订阅制</strong>：基础版及以上计划可用，无额外 API 费用</li>
+                    </ul>
+                </div>
+
                 <h3>🔥 热点讨论</h3>
                 <ul>
-                    <li>GitHub Stars 突破 <strong>300,000+</strong>（最新数据），超越 React 成为 GitHub 最受关注的开源项目</li>
+                    <li>GitHub Stars 突破 <strong>300,000+</strong>，超越 React 成为 GitHub 最受关注项目</li>
                     <li><strong>57,800+</strong> Forks，<strong>1,170+</strong> 贡献者</li>
                     <li>ContextEngine 被誉为"开发者等待已久的功能"</li>
                     <li>项目正从实验性 Agent 框架演变为生产级"Agent 操作系统"</li>
@@ -238,12 +278,13 @@
 
                 <h3>🛡️ 紧急安全公告</h3>
                 <div class="security-alert critical">
-                    <h4>⚠️ 新增高危 CVE（2026年3月）</h4>
+                    <h4>⚠️ 新增 CVE（2026年3月）</h4>
                     <ul>
                         <li><span class="cve-badge cve-high">CVSS 8.1</span><strong>CVE-2026-32302</strong>：WebSocket Origin Bypass via Trusted Proxy，影响版本 &lt; 2026.3.11</li>
                         <li><span class="cve-badge cve-high">CVSS 8.1</span><strong>CVE-2026-32061</strong>：路径遍历漏洞，$include 指令可读取配置外敏感文件</li>
+                        <li><span class="cve-badge cve-high">高危</span><strong>CVE-2026-32062</strong>：DoS 漏洞，语音通话扩展资源耗尽攻击</li>
                         <li><span class="cve-badge cve-medium">CVSS 6.3</span><strong>CVE-2026-40396</strong>：远程代码执行，Skill Env Handler 代码注入</li>
-                        <li><span class="cve-badge cve-low">CVSS 3.3</span><strong>CVE-2026-40403</strong>：本地信息泄露，File Existence Handler</li>
+                        <li><span class="cve-badge cve-low">CVSS 3.3</span><strong>CVE-2026-4040</strong>：本地信息泄露，File Existence Handler</li>
                         <li><span class="cve-badge cve-critical">严重</span><strong>CVE-2026-28391</strong>：Windows 命令注入漏洞</li>
                         <li><span class="cve-badge cve-high">CVSS 8.8</span><strong>CVE-2026-25253</strong>：一键 RCE，恶意网站可窃取令牌执行命令</li>
                     </ul>
@@ -256,6 +297,8 @@
                     <li>Forks：<strong>57,800+</strong> | 贡献者：<strong>1,170+</strong></li>
                     <li>Moltbook 活跃 Agents：<strong>770,000+</strong></li>
                     <li>ClawHub Skills：<strong>10,700+</strong></li>
+                    <li>MCP 服务器：<strong>10,000+</strong></li>
+                    <li>MCP SDK 月下载量：<strong>9,700万+</strong></li>
                     <li>生态创业公司：<strong>129 家</strong>，30天收入 <strong>$283,000</strong></li>
                     <li>历史恶意包：<strong>800+</strong>（已清理，峰值曾达20%注册表）</li>
                 </ul>
@@ -263,8 +306,8 @@
                 <h3>🔧 技术亮点</h3>
                 <ul>
                     <li><strong>ContextEngine 生命周期钩子</strong>：bootstrap → ingest → assemble → compact → afterTurn → prepareSubagentSpawn</li>
+                    <li><strong>MCP 协议支持</strong>：AI 的 USB-C，一次配置，到处连接</li>
                     <li><strong>Ollama 流式输出重构</strong>：完美隔离思考过程与正式响应</li>
-                    <li><strong>MCP 协议</strong>：与 20+ 顶级 Agent 系统兼容</li>
                     <li><strong>Feishu 深度优化</strong>：反应通知、打字指示器、Docx 排序修复</li>
                     <li><strong>安全加固</strong>：HSTS 头部、SSRF 策略默认 trusted-network、配置脱敏</li>
                 </ul>
@@ -302,7 +345,7 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">10K+</div>
-                    <div class="stat-label">Skills 数量</div>
+                    <div class="stat-label">MCP 服务器</div>
                 </div>
             </div>
         </div>
@@ -323,6 +366,11 @@
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-14</td>
+                            <td style="padding:12px;"><span class="version-badge">2026.3.12</span></td>
+                            <td style="padding:12px;">OpenClaw 3.12 发布、性能优化、UI 重构</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-14</td>
                             <td style="padding:12px;"><span class="version-badge">2026.3.7</span></td>
                             <td style="padding:12px;">ContextEngine 发布、GPT-5.4支持、89提交、200+修复</td>
                         </tr>
@@ -330,6 +378,11 @@
                             <td style="padding:12px;">2026-03-12</td>
                             <td style="padding:12px;">2026.3.11</td>
                             <td style="padding:12px;">CVE-2026-32302 WebSocket 修复</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-11</td>
+                            <td style="padding:12px;">-</td>
+                            <td style="padding:12px;">CVE-2026-32062 DoS 漏洞披露</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-05</td>
@@ -340,6 +393,11 @@
                             <td style="padding:12px;">2026-02-27</td>
                             <td style="padding:12px;">2026.2.26</td>
                             <td style="padding:12px;">Cron修复、外部密钥管理</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-02-26</td>
+                            <td style="padding:12px;">-</td>
+                            <td style="padding:12px;">MaxClaw 云版本发布</td>
                         </tr>
                         <tr>
                             <td style="padding:12px;">2026-02-23</td>
@@ -352,7 +410,7 @@
         </div>
 
         <div class="update-time">
-            最后更新：2026-03-18 | Knowledge Hub
+            最后更新：2026-03-19 | Knowledge Hub
         </div>
     </div>
 
