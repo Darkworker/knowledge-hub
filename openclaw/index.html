@@ -168,6 +168,13 @@
             margin: 16px 0;
             border-radius: 0 8px 8px 0;
         }
+        .usecase-highlight {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(3, 169, 244, 0.1) 100%);
+            border-left: 4px solid #2196f3;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -204,30 +211,28 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-19）<span class="version-badge">最新</span></h2>
+                <h2>📅 今日动态（2026-03-21）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
                 <h3>🚀 重大版本更新</h3>
                 <div class="feature-highlight">
-                    <strong>OpenClaw 3.12 正式发布</strong> - 2026年3月14日
+                    <strong>OpenClaw 2026.3.7 - ContextEngine 革命</strong> - 2026年3月9日
                     <ul>
-                        <li><strong>性能优化</strong>：显著提升响应速度和处理能力</li>
-                        <li><strong>UI 重构</strong>：全新的用户界面设计，更直观的操作体验</li>
-                        <li><strong>Bug 修复</strong>：大量已知问题修复，稳定性大幅提升</li>
-                        <li><strong>向后兼容</strong>：核心引擎保持向后兼容，部分旧版插件可能需要验证</li>
+                        <li><strong>89个提交</strong>，<strong>200+ bug修复</strong> - 历史上最重要的更新之一</li>
+                        <li><strong>ContextEngine 插件接口</strong>：可插拔的记忆管理框架，支持完整生命周期钩子</li>
+                        <li><strong>生命周期钩子</strong>：bootstrap → ingest → assemble → compact → afterTurn → prepareSubagentSpawn</li>
+                        <li><strong>双引擎路由</strong>：智能模型回退和重试机制，主模型限流时自动切换备用提供商</li>
                     </ul>
                 </div>
 
                 <div class="feature-highlight">
-                    <strong>OpenClaw 2026.3.7 正式版</strong> - 历史上最重要的更新之一
+                    <strong>OpenClaw 3.12 正式发布</strong> - 2026年3月14日
                     <ul>
-                        <li><strong>ContextEngine</strong>：革命性的上下文管理插件接口，支持完整的生命周期钩子（bootstrap → ingest → assemble → compact → afterTurn）</li>
-                        <li><strong>89个提交</strong>，<strong>200+ bug修复</strong>，标志着框架从实验性向生产级成熟转变</li>
-                        <li><strong>GPT-5.4 原生支持</strong>：完整集成 OpenAI 最新旗舰模型，OOLONG 基准测试超越官方原生工具</li>
-                        <li><strong>Gemini 3.1 深度优化</strong>：支持视频理解功能</li>
-                        <li><strong>双引擎路由</strong>：智能模型回退和重试机制，主模型限流时自动切换备用提供商</li>
-                        <li><strong>持久化频道绑定</strong>：通过 ACP 协议实现 Discord/Telegram 深度绑定，重启后自动恢复上下文</li>
+                        <li><strong>性能优化</strong>：内存开销减少 15%</li>
+                        <li><strong>UI 重构</strong>：全新用户界面设计，统一仪表板支持模块化小部件放置</li>
+                        <li><strong>Bug 修复</strong>：50+ 报告问题修复，包括内存泄漏、显示故障等</li>
+                        <li><strong>向后兼容</strong>：核心引擎保持向后兼容</li>
                     </ul>
                 </div>
 
@@ -239,7 +244,6 @@
                         <li><strong>mcporter 工具</strong>：官方内置 MCP 适配工具，一键接入高德地图、GitHub、数据库等</li>
                         <li><strong>生态爆发</strong>：MCP SDK 月下载量达 9,700 万+，成为 AI 连接标准</li>
                         <li><strong>配置简单</strong>：通过 <code>~/.openclaw/openclaw.json</code> 即可配置 MCP 服务器</li>
-                        <li><strong>支持服务</strong>：文件系统、PostgreSQL、GitHub、Brave 搜索、Slack 等</li>
                     </ul>
                 </div>
 
@@ -252,6 +256,40 @@
                         <li>腾讯正在开发可集成微信的新 AI Agent</li>
                         <li>百度计划将 OpenClaw 集成到搜索应用，潜在覆盖 <strong>7亿用户</strong></li>
                         <li>深圳龙岗区政府为 OpenClaw 项目提供最高 <strong>200万元</strong> 补贴</li>
+                    </ul>
+                </div>
+
+                <h3>💼 新增业务应用案例（2026.3月）</h3>
+                <div class="usecase-highlight">
+                    <strong>1. Slack 自动支持运维</strong>
+                    <ul>
+                        <li>监控公司 Slack 频道，识别传入请求</li>
+                        <li>基于内部文档提供回复，高优先级转发到 Telegram</li>
+                        <li>案例：Agent 自主识别并建议修复生产环境 bug</li>
+                    </ul>
+                </div>
+                <div class="usecase-highlight">
+                    <strong>2. 会计文档处理自动化</strong>
+                    <ul>
+                        <li>连接邮箱识别发票和财务文档</li>
+                        <li>解析 PDF 并准备税务/会计系统数据</li>
+                        <li>消除每月重复协调任务的行政负担</li>
+                    </ul>
+                </div>
+                <div class="usecase-highlight">
+                    <strong>3. PR 代码审查反馈</strong>
+                    <ul>
+                        <li>自动审查代码差异，识别缺失测试、风格问题</li>
+                        <li>通过 Telegram 异步反馈</li>
+                        <li>减少审查延迟，让高级工程师专注架构决策</li>
+                    </ul>
+                </div>
+                <div class="usecase-highlight">
+                    <strong>4. 本地 CRM 和销售自动化</strong>
+                    <ul>
+                        <li>监控邮件和日历活动，识别新联系人</li>
+                        <li>跟踪对话并记录到本地 SQLite 数据库</li>
+                        <li>支持自然语言查询销售管道</li>
                     </ul>
                 </div>
 
@@ -276,17 +314,25 @@
                     <li>Discord 社区严格执行无加密货币政策</li>
                 </ul>
 
-                <h3>🛡️ 紧急安全公告</h3>
+                <h3>🛡️ 紧急安全公告（2026年3月20日更新）</h3>
                 <div class="security-alert critical">
-                    <h4>⚠️ 新增 CVE（2026年3月）</h4>
+                    <h4>⚠️ 新增 CVE（2026年3月20日）</h4>
                     <ul>
-                        <li><span class="cve-badge cve-high">CVSS 8.1</span><strong>CVE-2026-32302</strong>：WebSocket Origin Bypass via Trusted Proxy，影响版本 &lt; 2026.3.11</li>
-                        <li><span class="cve-badge cve-high">CVSS 8.1</span><strong>CVE-2026-32061</strong>：路径遍历漏洞，$include 指令可读取配置外敏感文件</li>
-                        <li><span class="cve-badge cve-high">高危</span><strong>CVE-2026-32062</strong>：DoS 漏洞，语音通话扩展资源耗尽攻击</li>
-                        <li><span class="cve-badge cve-medium">CVSS 6.3</span><strong>CVE-2026-40396</strong>：远程代码执行，Skill Env Handler 代码注入</li>
-                        <li><span class="cve-badge cve-low">CVSS 3.3</span><strong>CVE-2026-4040</strong>：本地信息泄露，File Existence Handler</li>
-                        <li><span class="cve-badge cve-critical">严重</span><strong>CVE-2026-28391</strong>：Windows 命令注入漏洞</li>
-                        <li><span class="cve-badge cve-high">CVSS 8.8</span><strong>CVE-2026-25253</strong>：一键 RCE，恶意网站可窃取令牌执行命令</li>
+                        <li><span class="cve-badge cve-high">高危</span><strong>CVE-2026-31995</strong>：命令注入漏洞，影响版本 &lt; 2026.2.19，工作流参数未充分验证</li>
+                    </ul>
+                </div>
+                <div class="security-alert">
+                    <h4>⚠️ 其他高危 CVE（2026年3月）</h4>
+                    <ul>
+                        <li><span class="cve-badge cve-high">CVSS 8.7</span><strong>CVE-2026-28479</strong>：SHA-1 缓存投毒，影响版本 &lt; 2026.2.15</li>
+                        <li><span class="cve-badge cve-high">CVSS 8.7</span><strong>CVE-2026-28478</strong>：DoS via Webhook 缓冲，影响版本 &lt; 2026.2.13</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.4</span><strong>CVE-2026-28458</strong>：浏览器 Relay 认证缺失，影响 2026.1.20-2.1</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.3</span><strong>CVE-2026-32015</strong>：PATH 劫持绕过，影响 2026.1.21-2.19</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.3</span><strong>CVE-2026-32032</strong>：SHELL 变量任意执行，影响 &lt; 2026.2.22</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.3</span><strong>CVE-2026-32016</strong>：macOS 路径遍历，影响 &lt; 2026.2.22</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.2</span><strong>CVE-2026-28473</strong>：/approve 命令授权绕过，影响 &lt; 2026.2.2</li>
+                        <li><span class="cve-badge cve-high">CVSS 7.1</span><strong>CVE-2026-22175</strong>：多路复用器绕过，影响 &lt; 2026.2.23</li>
+                        <li><span class="cve-badge cve-high">CVSS 8.4</span><strong>CVE-2026-28485</strong>：浏览器控制 RCE，影响 2026.1.5-2.12</li>
                     </ul>
                     <p><strong>立即升级至 2026.3.11+ 版本！</strong></p>
                 </div>
@@ -310,15 +356,6 @@
                     <li><strong>Ollama 流式输出重构</strong>：完美隔离思考过程与正式响应</li>
                     <li><strong>Feishu 深度优化</strong>：反应通知、打字指示器、Docx 排序修复</li>
                     <li><strong>安全加固</strong>：HSTS 头部、SSRF 策略默认 trusted-network、配置脱敏</li>
-                </ul>
-
-                <h3>💼 业务应用场景</h3>
-                <ul>
-                    <li><strong>每日简报</strong>：07:30 定时唤醒，总结提交、PR、会议并发送 Slack 摘要</li>
-                    <li><strong>站会管理</strong>：Discord 监听更新，自动记录阻塞问题，创建任务</li>
-                    <li><strong>值班监控</strong>：CPU 飙升自动检测，WhatsApp 发送诊断结果</li>
-                    <li><strong>全球协作</strong>：Feishu/Lark 统一回复客户查询</li>
-                    <li><strong>18岁创业者案例</strong>：Mac Mini 上运行 16 个 Agent 管理内容生产团队</li>
                 </ul>
 
                 <h3>🌐 生态系统扩展</h3>
@@ -365,29 +402,29 @@
                     </thead>
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-20</td>
+                            <td style="padding:12px;">-</td>
+                            <td style="padding:12px;"><span class="cve-badge cve-high">安全</span> CVE-2026-31995 命令注入漏洞披露</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-14</td>
                             <td style="padding:12px;"><span class="version-badge">2026.3.12</span></td>
                             <td style="padding:12px;">OpenClaw 3.12 发布、性能优化、UI 重构</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
-                            <td style="padding:12px;">2026-03-14</td>
+                            <td style="padding:12px;">2026-03-09</td>
                             <td style="padding:12px;"><span class="version-badge">2026.3.7</span></td>
-                            <td style="padding:12px;">ContextEngine 发布、GPT-5.4支持、89提交、200+修复</td>
+                            <td style="padding:12px;"><strong>ContextEngine 发布</strong>、GPT-5.4支持、89提交、200+修复</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
-                            <td style="padding:12px;">2026-03-12</td>
-                            <td style="padding:12px;">2026.3.11</td>
-                            <td style="padding:12px;">CVE-2026-32302 WebSocket 修复</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border-color);">
-                            <td style="padding:12px;">2026-03-11</td>
+                            <td style="padding:12px;">2026-03-09</td>
                             <td style="padding:12px;">-</td>
-                            <td style="padding:12px;">CVE-2026-32062 DoS 漏洞披露</td>
+                            <td style="padding:12px;"><strong>新增业务案例</strong>：Slack运维、会计自动化、PR审查、CRM</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-05</td>
                             <td style="padding:12px;">2026.3.1</td>
-                            <td style="padding:12px;">Feishu/Discord 组件修复</td>
+                            <td style="padding:12px;">Feishu/Discord 组件修复、反应通知配置</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-02-27</td>
@@ -410,7 +447,7 @@
         </div>
 
         <div class="update-time">
-            最后更新：2026-03-19 | Knowledge Hub
+            最后更新：2026-03-21 | Knowledge Hub
         </div>
     </div>
 
