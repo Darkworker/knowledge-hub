@@ -211,11 +211,21 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-21）<span class="version-badge">最新</span></h2>
+                <h2>📅 今日动态（2026-03-22）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
                 <h3>🚀 重大版本更新</h3>
+                
+                <div class="feature-highlight">
+                    <strong>OpenClaw 2026.3.13 修复版发布</strong> - 2026年3月14日
+                    <ul>
+                        <li>修复 v2026.3.13 发布路径问题，Git 标签使用 <code>v2026.3.13-1</code></li>
+                        <li>npm 版本仍为 <code>2026.3.13</code>，保持向后兼容</li>
+                        <li>解决了不可变发布无法重用标签的技术限制</li>
+                    </ul>
+                </div>
+
                 <div class="feature-highlight">
                     <strong>OpenClaw 2026.3.7 - ContextEngine 革命</strong> - 2026年3月9日
                     <ul>
@@ -223,16 +233,6 @@
                         <li><strong>ContextEngine 插件接口</strong>：可插拔的记忆管理框架，支持完整生命周期钩子</li>
                         <li><strong>生命周期钩子</strong>：bootstrap → ingest → assemble → compact → afterTurn → prepareSubagentSpawn</li>
                         <li><strong>双引擎路由</strong>：智能模型回退和重试机制，主模型限流时自动切换备用提供商</li>
-                    </ul>
-                </div>
-
-                <div class="feature-highlight">
-                    <strong>OpenClaw 3.12 正式发布</strong> - 2026年3月14日
-                    <ul>
-                        <li><strong>性能优化</strong>：内存开销减少 15%</li>
-                        <li><strong>UI 重构</strong>：全新用户界面设计，统一仪表板支持模块化小部件放置</li>
-                        <li><strong>Bug 修复</strong>：50+ 报告问题修复，包括内存泄漏、显示故障等</li>
-                        <li><strong>向后兼容</strong>：核心引擎保持向后兼容</li>
                     </ul>
                 </div>
 
@@ -256,6 +256,18 @@
                         <li>腾讯正在开发可集成微信的新 AI Agent</li>
                         <li>百度计划将 OpenClaw 集成到搜索应用，潜在覆盖 <strong>7亿用户</strong></li>
                         <li>深圳龙岗区政府为 OpenClaw 项目提供最高 <strong>200万元</strong> 补贴</li>
+                    </ul>
+                </div>
+
+                <h3>🪟 Windows Hub 更新</h3>
+                <div class="feature-highlight">
+                    <strong>OpenClaw Windows Hub v0.4.7 发布（2026.3.18）</strong>
+                    <ul>
+                        <li>完整中文本地化支持 + 贡献者指南</li>
+                        <li>系统托盘集成，支持 Gateway 状态监控</li>
+                        <li>PowerToys Command Palette 扩展（可选）</li>
+                        <li>支持 x64 和 ARM64 架构，提供安装程序、便携版和 MSIX 包</li>
+                        <li>代码签名认证，自动更新支持</li>
                     </ul>
                 </div>
 
@@ -334,7 +346,7 @@
                         <li><span class="cve-badge cve-high">CVSS 7.1</span><strong>CVE-2026-22175</strong>：多路复用器绕过，影响 &lt; 2026.2.23</li>
                         <li><span class="cve-badge cve-high">CVSS 8.4</span><strong>CVE-2026-28485</strong>：浏览器控制 RCE，影响 2026.1.5-2.12</li>
                     </ul>
-                    <p><strong>立即升级至 2026.3.11+ 版本！</strong></p>
+                    <p><strong>立即升级至 2026.3.13+ 版本！</strong></p>
                 </div>
 
                 <h3>📊 关键数据更新</h3>
@@ -402,9 +414,19 @@
                     </thead>
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-22</td>
+                            <td style="padding:12px;">-</td>
+                            <td style="padding:12px;"><span class="version-badge">更新</span> 专题更新：新增 Windows Hub v0.4.7</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-20</td>
                             <td style="padding:12px;">-</td>
                             <td style="padding:12px;"><span class="cve-badge cve-high">安全</span> CVE-2026-31995 命令注入漏洞披露</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-14</td>
+                            <td style="padding:12px;"><span class="version-badge">2026.3.13</span></td>
+                            <td style="padding:12px;"><strong>OpenClaw 2026.3.13 修复版发布</strong></td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-14</td>
@@ -447,7 +469,7 @@
         </div>
 
         <div class="update-time">
-            最后更新：2026-03-21 | Knowledge Hub
+            最后更新：2026-03-22 | Knowledge Hub
         </div>
     </div>
 
