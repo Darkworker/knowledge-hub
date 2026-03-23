@@ -211,12 +211,23 @@
 
         <div class="daily-section">
             <div class="daily-header">
-                <h2>📅 今日动态（2026-03-22）<span class="version-badge">最新</span></h2>
+                <h2>📅 今日动态（2026-03-23）<span class="version-badge">最新</span></h2>
                 <span class="daily-date">每日更新</span>
             </div>
             <div class="daily-content">
                 <h3>🚀 重大版本更新</h3>
                 
+                <div class="feature-highlight">
+                    <strong>OpenClaw 2026.3.8 备份功能更新</strong> - 2026年3月10日
+                    <ul>
+                        <li>新增 CLI 备份命令：<code>openclaw backup create</code> 和 <code>openclaw backup verify</code></li>
+                        <li>支持本地状态归档，包含配置和工作区数据</li>
+                        <li>支持 <code>--only-config</code> 仅备份配置选项</li>
+                        <li>支持 <code>--no-include-workspace</code> 排除工作区选项</li>
+                        <li>新增清单/负载验证和用户操作指导</li>
+                    </ul>
+                </div>
+
                 <div class="feature-highlight">
                     <strong>OpenClaw 2026.3.13 修复版发布</strong> - 2026年3月14日
                     <ul>
@@ -326,15 +337,28 @@
                     <li>Discord 社区严格执行无加密货币政策</li>
                 </ul>
 
-                <h3>🛡️ 紧急安全公告（2026年3月20日更新）</h3>
+                <h3>🛡️ 紧急安全公告（2026年3月23日更新）</h3>
                 <div class="security-alert critical">
                     <h4>⚠️ 新增 CVE（2026年3月20日）</h4>
                     <ul>
-                        <li><span class="cve-badge cve-high">高危</span><strong>CVE-2026-31995</strong>：命令注入漏洞，影响版本 &lt; 2026.2.19，工作流参数未充分验证</li>
+                        <li><span class="cve-badge cve-medium">中危 CVSS 5.8</span><strong>CVE-2026-31995</strong>：命令注入漏洞，影响版本 2026.1.21-2.19，Lobster 扩展 Windows shell 回退机制存在漏洞</li>
+                        <li><span class="cve-badge cve-medium">中危 CVSS 5.8</span><strong>CVE-2026-32000</strong>：命令注入 via Windows Shell Fallback in Lobster Tool Execution，影响版本 &lt; 2026.2.19</li>
                     </ul>
                 </div>
                 <div class="security-alert">
-                    <h4>⚠️ 其他高危 CVE（2026年3月）</h4>
+                    <h4>⚠️ 3月19日披露 CVE</h4>
+                    <ul>
+                        <li><span class="cve-badge cve-high">高危 CVSS 7.0</span><strong>CVE-2026-31998</strong>：授权绕过，Synology Chat 插件问题，影响 2026.2.22-2.23</li>
+                        <li><span class="cve-badge cve-high">高危 CVSS 7.1</span><strong>CVE-2026-31994</strong>：本地命令注入，Windows 计划任务脚本生成问题</li>
+                        <li><span class="cve-badge cve-high">高危 CVSS 7.1</span><strong>CVE-2026-31992</strong>：允许列表绕过，system.run 护栏问题</li>
+                        <li><span class="cve-badge cve-medium">中危 CVSS 6.3</span><strong>CVE-2026-31999</strong>：当前工作目录注入，影响 2026.2.26-3.1（Windows）</li>
+                        <li><span class="cve-badge cve-medium">中危 CVSS 6.0</span><strong>CVE-2026-31997</strong>：可执行文件重新绑定攻击，影响 &lt; 2026.3.1</li>
+                        <li><span class="cve-badge cve-low">低危 CVSS 3.6</span><strong>CVE-2026-31996</strong>：输入验证绕过，tools.exec.safeBins 问题</li>
+                        <li><span class="cve-badge cve-low">低危 CVSS 3.7</span><strong>CVE-2026-31991</strong>：授权绕过，/approve 命令问题</li>
+                    </ul>
+                </div>
+                <div class="security-alert">
+                    <h4>⚠️ 其他高危 CVE（2026年2月）</h4>
                     <ul>
                         <li><span class="cve-badge cve-high">CVSS 8.7</span><strong>CVE-2026-28479</strong>：SHA-1 缓存投毒，影响版本 &lt; 2026.2.15</li>
                         <li><span class="cve-badge cve-high">CVSS 8.7</span><strong>CVE-2026-28478</strong>：DoS via Webhook 缓冲，影响版本 &lt; 2026.2.13</li>
@@ -368,6 +392,7 @@
                     <li><strong>Ollama 流式输出重构</strong>：完美隔离思考过程与正式响应</li>
                     <li><strong>Feishu 深度优化</strong>：反应通知、打字指示器、Docx 排序修复</li>
                     <li><strong>安全加固</strong>：HSTS 头部、SSRF 策略默认 trusted-network、配置脱敏</li>
+                    <li><strong>CLI 备份功能</strong>：本地状态归档与验证</li>
                 </ul>
 
                 <h3>🌐 生态系统扩展</h3>
@@ -414,14 +439,19 @@
                     </thead>
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--border-color);">
-                            <td style="padding:12px;">2026-03-22</td>
+                            <td style="padding:12px;">2026-03-23</td>
                             <td style="padding:12px;">-</td>
-                            <td style="padding:12px;"><span class="version-badge">更新</span> 专题更新：新增 Windows Hub v0.4.7</td>
+                            <td style="padding:12px;"><span class="version-badge">更新</span> 专题更新：CLI备份功能、CVE-2026-31995/31998/31999 等漏洞披露</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-20</td>
                             <td style="padding:12px;">-</td>
-                            <td style="padding:12px;"><span class="cve-badge cve-high">安全</span> CVE-2026-31995 命令注入漏洞披露</td>
+                            <td style="padding:12px;"><span class="cve-badge cve-medium">安全</span> CVE-2026-31995/32000 命令注入漏洞披露</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-19</td>
+                            <td style="padding:12px;">-</td>
+                            <td style="padding:12px;"><span class="cve-badge cve-high">安全</span> 多个 CVE 披露：CVE-2026-31991 至 CVE-2026-31999</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-14</td>
@@ -432,6 +462,11 @@
                             <td style="padding:12px;">2026-03-14</td>
                             <td style="padding:12px;"><span class="version-badge">2026.3.12</span></td>
                             <td style="padding:12px;">OpenClaw 3.12 发布、性能优化、UI 重构</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding:12px;">2026-03-10</td>
+                            <td style="padding:12px;"><span class="version-badge">2026.3.8</span></td>
+                            <td style="padding:12px;"><strong>新增备份 CLI 命令</strong> (backup create/verify)</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td style="padding:12px;">2026-03-09</td>
@@ -469,7 +504,7 @@
         </div>
 
         <div class="update-time">
-            最后更新：2026-03-22 | Knowledge Hub
+            最后更新：2026-03-23 | Knowledge Hub
         </div>
     </div>
 
